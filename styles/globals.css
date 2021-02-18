@@ -1,16 +1,188 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100%;
+}
+
+body {
+  @apply dark:bg-gray-800 font-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply text-orange;
 }
 
-* {
-  box-sizing: border-box;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+  @apply dark:text-gray-200;
 }
+
+.html {
+  @apply dark:text-gray-200;
+}
+
+.html a {
+  @apply text-orange underline hover:no-underline font-semibold;
+}
+
+.html h1 a,
+.html h2 a,
+.html h3 a,
+.html h4 a,
+.html h5 a,
+.html h6 a {
+  @apply dark:text-gray-200;
+}
+
+.html h1[id]:before,
+.html h2[id]:before,
+.html h3[id]:before,
+.html h4[id]:before,
+.html h5[id]:before,
+.html h6[id]:before {
+  content: "#";
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 6px;
+  border: none;
+}
+
+.html ul {
+  @apply m-8 list-outside list-disc;
+}
+
+.html ul li {
+  @apply text-lg;
+}
+
+.html ul li + li {
+  @apply mt-4;
+}
+
+.blog-container {
+  max-width: 630px;
+  @apply mx-auto p-4;
+}
+
+.html h1 {
+  @apply text-3xl font-bold mb-2;
+}
+
+.html h2 {
+  @apply text-2xl font-bold mb-2;
+}
+
+.html h3 {
+  @apply text-xl font-bold mb-2;
+}
+
+.html p {
+  @apply mb-5 text-lg leading-8;
+}
+
+.html code {
+  background-color: #011627;
+  @apply rounded p-1 text-gray-200;
+}
+
+.html img {
+  @apply my-6;
+}
+
+.html .remark-highlight {
+  @apply my-6;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #011627 !important;
+  @apply rounded;
+  margin-bottom: 1.8rem !important;
+}
+
+@media screen and (min-width: 640px) {
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    margin: 0.5em -2.5rem 1.8rem !important;
+  }
+}
+
+.bio p {
+  margin-bottom: 0;
+}
+
+.dark-mode-toggle {
+  display: flex;
+}
+
+.dark-mode-toggle > button {
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.dark-mode-toggle > button:focus {
+  outline: none;
+}
+
+.toggle-control {
+  position: relative;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"].dmcheck {
+  width: 40px;
+  height: 10px;
+  background: #555;
+  position: relative;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  vertical-align: 2px;
+  outline: none;
+}
+
+input[type="checkbox"].dmcheck:checked + label {
+  left: 30px;
+}
+
+input[type="checkbox"].dmcheck:focus-visible {
+  outline: solid 2px white;
+}
+
+input[type="checkbox"].dmcheck + label {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  left: 2px;
+  background: #fff;
+  opacity: 0.9;
+  background-color: #f6f6f6;
+}
+
+html.dark-mode .dark-mode-toggle > button {
+  color: #999;
+}
+
+html.dark-mode .dark-mode-toggle > button:last-child {
+  color: lightblue;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
